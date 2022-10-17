@@ -87,7 +87,7 @@
   position: absolute;
   width: 500vw;
   height: 100vh;
-  transition: 0.5s;
+  transition: 1s;
 }
 
 /* 기준 박스 */
@@ -267,7 +267,7 @@ input[name=nav]{
   z-index: 2;
   top: 90%;
   left: 50%;
-  transform: translate(-50%,0%);
+  transform: translate(-50%,-50%);
 }
 
 .btn label{
@@ -280,6 +280,31 @@ input[name=nav]{
   cursor: pointer;
   transition: 0.5s;
  
+}
+
+.btn2 span:nth-child(1){
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 16%;
+  transform: translate(-50%,-50%);
+}
+
+.btn2 span:nth-child(2){
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 84%;
+  transform: translate(0%,-50%);
+}
+
+.btn2 span{
+  font-family: 'TmonMonsori'; 
+  font-weight: 400; 
+  font-size: 60px;
+  color: lightgray;
+  cursor: pointer;
+  transition: 0.5s;
 }
 
 input[id=nav1]:checked ~ .cardBox{
@@ -322,11 +347,19 @@ input[id=nav5].active ~ .cardBox .innerCardBox:nth-of-type(5) .content2{
 } 
  
 
-
 @keyframes move {
   0%{}
   100%{margin-top: 0;}
 
+}
+
+@keyframes vibration {
+  0% {
+    transform: rotate(1deg);
+  }
+  50% {
+    transform: rotate(-1deg);
+  }
 }
 
 /* ================================================== */
