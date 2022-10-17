@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+
+<!-- ================================================== -->
+
+
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/jquery-3.6.0.js"></script>
+  <script>
+
+   
+
+
+
+    $(function(){
+
+      // 컨텐츠 애니메이션
+      $('input[name="nav"]').click(function(){
+        $(this).addClass("active");
+      })
+
+      // ==================================================
+
+
+      // 스크롤 이벤트
+      $('#titleNav1').click(function(){
+        var now = $("html, body").scrollTop();
+        alert(now)
+       $("html, body").animate({scrollTop:0}, "slow"); 
+      });
+
+      // 스크롤 이벤트
+      $('#titleNav2').click(function(){
+        var now = $("html, body").scrollTop();
+        alert(now)
+        $("html, body").animate({scrollTop:745}, "slow"); 
+        $('#nav1').addClass("active");
+      });
+
+      // 스크롤 이벤트
+      $(window).scroll(function(){
+
+   
+
+      });
+
+
+        // ==================================================
+
+          $('.card').mouseover(function(){
+            $('.btn label').css('opacity', '0')
+          })
+
+          $('.card').mouseout(function(){
+            $('.btn label').css('opacity', '1')
+          })
+    })
+
+  </script>
+
+
+<!-- ================================================== -->
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- 제목 박스 -->
+    <div class="titleBox">
+
+      <input type="radio" name="titleNav" id="titleNav1" checked>
+      <input type="radio" name="titleNav" id="titleNav2">
+
+      <div class="titleBtn">
+        <label for="titleNav1"></label>
+        <label for="titleNav2"></label>
+      </div>
+
+      <div class="title">
+        <span>Tari's<br>
+          Portfolilo</span>
+      </div>
+
+    </div>
+
+
+    <!-- 컨텐츠 -->
+    <div class="content">
+      
+      <input type="radio" name="nav" id="nav1" checked>
+      <input type="radio" name="nav" id="nav2">
+      <input type="radio" name="nav" id="nav3">
+      <input type="radio" name="nav" id="nav4">
+      <input type="radio" name="nav" id="nav5">
+      
+      <!-- 네비 버튼 -->
+      <div class="btn">
+        <label for="nav1"></label>
+        <label for="nav2"></label>
+        <label for="nav3"></label>
+        <label for="nav4"></label>
+        <label for="nav5"></label>
+      </div>
+
+      .btn
+
+      <!-- 배경 색상 -->
+      <div class="back"></div>
+
+
+      <!-- 5배 박스 -->
+      <div class="cardBox">
+
+
+        <!-- ABOUT ME ====================================================================== -->
+
+        <!-- 기준 박스 -->
+        <div class="innerCardBox">
+          <!-- 명함틀 -->
+          <div class="card">
+
+            <!-- 종이질감 -->
+            <div class="texture"></div>
+            <!-- 명함 내용 -->
+            <div class="cardContent">
+
+              <!-- 순서 -->
+              <div class="ch">
+                <h2>ch1.</h2>
+              </div>
+
+              <!-- 소제목 -->
+              <div class="content1">
+          
+                <h1> ABOUT <br> ME - <br> </h1>
+        
+                <h2>
+                  너의 모든 것, 내 전부인 너
+                  우리는 영원<br> 
+                  전율 속에 뜨거운 그 맘을 던져
+                  <br>  
+                </h2> 
+        
+              </div>
+
+              <!-- 내용 -->
+              <div class="content2">
+                  <span>안녕하세요! 밝은 건치를 가진 1년차 개발자 이제윤입니다. 뜨근한 자바스크립트를 좋아합니다.</span>
+                  <span>네가 머문 이 세상이 더
+                    아름다운 건
+                    겁 없이 외치던 말 '사랑해 너를'
+                    영원하기에
+                    You and I.</span>
+                  <span>터지는 눈물이
+                    말하잖아
+                    난 그냥 전부 던진 거야
+                    아무런 망설임 따위도
+                    멋대로 끌렸던 그대로
+                    Oh my baby 달려가 안을게</span>
+                  <span> 날 꼭 안아 절대 놓치지 마
+                    가슴이 뛰잖아 </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- EDUCATION ====================================================================== -->
+
+        <!-- 기준 박스 -->
+        <div class="innerCardBox">
+          <!-- 명함틀 -->
+          <div class="card">
+
+            <!-- 종이질감 -->
+            <div class="texture"></div>
+            <!-- 명함 내용 -->
+            <div class="cardContent">
+
+              <!-- 순서 -->
+              <div class="ch">
+                <h2>ch2.</h2>
+              </div>
+
+              <!-- 소제목 -->
+              <div class="content1">
+          
+                <h1> EDU - <br> CATION <br> </h1>
+        
+                <h2>
+                  너의 모든 것, 내 전부인 너
+                  우리는 영원<br> 
+                  전율 속에 뜨거운 그 맘을 던져
+                  <br>  
+                </h2> 
+        
+              </div>
+
+              <!-- 내용 -->
+              <div class="content2">
+
+                  <span>ITWILL 교육 센터</span>
+                  <div>2019.08 ~ 2020.02</div>
+                  <div>아이티윌 전자정부 프레임워크 자바개발자 과정을 수강하였습니다. 수강을 하며 Java의 문법과 Jsp, Html/CSS/Javascript 를 배우며 기본적인 웹 서비스를 만들 수 있었습니다.또한 팀프로젝트를 진행하며 협업하는 방법을 배우며 소통의 중요성을 배웠습니다.</div>
+
+                  <span>INFLEAN</span>
+                  <div>2019.08 ~ 2020.02</div>
+                  <div> 인프런 스프링 핵심기술 강의를 들으며 IoC 컨테이너, AOP 그리고 스프링의 여러가지 추상 API 와 같은 스프링 핵심 기술을 배우며 더 나은 웹서버 개발자로 성장하기 위해 수강하고 있습니다. </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        
+        <!-- SKILLS ====================================================================== -->
+
+
+        <!-- 기준 박스 -->
+        <div class="innerCardBox">
+          <!-- 명함틀 -->
+          <div class="card">
+
+            <!-- 종이질감 -->
+            <div class="texture"></div>
+            <!-- 명함 내용 -->
+            <div class="cardContent">
+
+              <!-- 순서 -->
+              <div class="ch">
+                <h2>ch3.</h2>
+              </div>
+
+              <!-- 소제목 -->
+              <div class="content1">
+          
+                <h1> SKILLS <br> </h1>
+        
+                <h2>
+                  너의 모든 것, 내 전부인 너
+                  우리는 영원<br> 
+                  전율 속에 뜨거운 그 맘을 던져
+                  <br>  
+                </h2> 
+        
+              </div>
+
+              <!-- 내용 -->
+              <div class="content2">
+                  <span>Frontend </span>
+                  <div>
+                    HTML
+                    CSS
+                    JQuery
+                    JavaScript
+                    React
+                    Tailwind
+                  </div>
+
+                  <span>Backend </span>
+                  <div>
+                    Java
+                    jsp
+                    Spring
+                    MySQL
+                    OracleDB
+                  </div>
+
+                  <span>Tools </span>
+                  <div>
+                    Git, GitHub
+                    VSCode, Eclipse
+                  </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- PROJECTS ====================================================================== -->
+
+        <!-- 기준 박스 -->
+        <div class="innerCardBox">
+          <!-- 명함틀 -->
+          <div class="card">
+
+            <!-- 종이질감 -->
+            <div class="texture"></div>
+            <!-- 명함 내용 -->
+            <div class="cardContent">
+
+              <!-- 순서 -->
+              <div class="ch">
+                <h2>ch4.</h2>
+              </div>
+
+              <!-- 소제목 -->
+              <div class="content1">
+          
+                <h1> PRO - <br> JECTS <br> </h1>
+        
+                <h2>
+                  너의 모든 것, 내 전부인 너
+                  우리는 영원<br> 
+                  전율 속에 뜨거운 그 맘을 던져
+                  <br>  
+                </h2> 
+        
+              </div>
+
+              <!-- 내용 -->
+              <div class="content2">
+
+                  <span>트리어스(주소)</span>
+                  <div>
+                    개요<br>
+                    네가 머문 이 세상이 더
+                    아름다운 건
+                    겁 없이 외치던 말 '사랑해 너를'
+                    영원하기에
+                    You and I.<br>
+                    주요 기능<br>
+                    내가 생각하는 나의 성격 검사하기, 친구에게 나의 성격 평가 부탁하기
+                  </div>
+
+                  <span>종이로 만든 사이트(주소)</span>
+                  <div>
+                    개요<br>
+                    네가 머문 이 세상이 더
+                    아름다운 건
+                    겁 없이 외치던 말 '사랑해 너를'
+                    영원하기에
+                    You and I.<br>
+                    주요 기능<br>
+                    내가 생각하는 나의 성격 검사하기, 친구에게 나의 성격 평가 부탁하기
+                  </div>
+             
+                </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- CONTACTS====================================================================== -->
+
+        <!-- 기준 박스 -->
+        <div class="innerCardBox">
+          <!-- 명함틀 -->
+          <div class="card">
+
+            <!-- 종이질감 -->
+            <div class="texture"></div>
+            <!-- 명함 내용 -->
+            <div class="cardContent">
+
+              <!-- 순서 -->
+              <div class="ch">
+                <h2>ch5.</h2>
+              </div>
+
+              <!-- 소제목 -->
+              <div class="content1">
+          
+                <h1> CON - <br> TACTS <br> </h1>
+        
+                <h2>
+                  너의 모든 것, 내 전부인 너
+                  우리는 영원<br> 
+                  전율 속에 뜨거운 그 맘을 던져
+                  <br>  
+                </h2> 
+        
+              </div>
+
+              <!-- 내용 -->
+              <div class="content2">
+                  <span>
+                    phone<br>
+                    010-9526-7933
+                  </span>
+
+                  <span>
+                    email<br>
+                    tari45800@gmail.com
+                  </span>
+
+                  <span>
+                    github<br>
+                    https://github.com/tari45800
+                  </span>
+
+                  <span>
+                    notion<br>
+                    https://www.notion.so/MAIN-d5a0e516e6bd433e97f519eb7b655ad6
+                  </span>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+       
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>

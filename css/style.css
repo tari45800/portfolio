@@ -1,0 +1,337 @@
+@font-face {
+  font-family: 'BMHANNAPro';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'EF_Diary';
+    font-weight: normal;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/earlyfont/EF_Diary.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/earlyfont/EF_Diary.eot?#iefix') format('embedded-opentype'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/earlyfont/EF_Diary.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/earlyfont/EF_Diary.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/earlyfont/EF_Diary.ttf') format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+  font-family: 'TmonMonsori';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/TmonMonsori.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ChosunGu';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGu.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+
+/* ================================================== */
+/* 타이틀 */
+
+
+/* 타이틀 박스 */
+.titleBox{
+  height: 100vh;
+  background-color: rgba(68, 0, 136);
+}
+
+.title{
+  position: absolute;
+  top: 55%;
+  left: 65%;
+  /* transform: translate(-50%,-50%); */
+}
+
+.title span{
+  font-family: 'TmonMonsori'; 
+  font-weight: 400; 
+  font-size: 100px;
+  line-height: 120px;
+  letter-spacing: 5px;
+  color: #fff;
+}
+
+/* ================================================== */
+/* 골격 */
+
+
+/* 명함 박스 */
+.content{
+  position: relative;
+  height: 100vh;
+  background-color: white;
+  overflow: hidden;
+}
+
+/* 5배 박스 */
+.cardBox{
+  position: absolute;
+  width: 500vw;
+  height: 100vh;
+  transition: 0.5s;
+}
+
+/* 기준 박스 */
+.innerCardBox{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  float: left;
+}
+
+
+
+/* 명함 틀 */
+.card{
+   /* 36 , 20 */
+   width: 936px;
+   height: 520px;
+   background-color: #fff;
+ 
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   overflow: hidden;
+   transition: 0.3s;
+ 
+   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* 배경 */
+.back{
+  position: absolute;
+  width: 100%;
+  height: 65vh;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 0% 100%);
+  background-color: rgba(68, 0, 136);
+}
+
+/* ================================================== */
+/* 명함 안 */
+
+
+/* 종이 질감 */
+.texture{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 936px;
+  height: 520px;
+  background-image: url(../img/paper1.jpg);
+  opacity: 0.5;
+  z-index: 1;
+}
+
+/* 컨텐츠 박스 */
+.cardContent{
+  position: absolute;
+  z-index: 2;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 80%;
+}
+
+/* 쳅터 박스 */
+.ch h2{
+  font-family: 'TmonMonsori'; 
+  font-weight: 400; 
+  font-size: 28px;
+  line-height: 50px;
+  color: rgba(68, 0, 136);
+}
+
+/* 소제목 박스 */
+.content1{
+float: left;
+width: 35%;
+}
+
+/* 컨텐츠 박스 */
+.content2{
+  float: right;
+  width: 62%;
+  margin-top: 500px;
+  transition: 2s;
+}
+
+/* 소제목 */
+.content1 h1{
+  font-family: 'TmonMonsori'; 
+  font-weight: 400; 
+  font-size: 45px;
+  line-height: 55px;
+  color: rgba(68, 0, 136);
+}
+
+/* 소제목 글귀 */
+.content1 h2{
+  font-family: 'ChosunGu';
+  font-weight: 400;
+  font-size: 12px;
+  color: black;
+  line-height: 20px;
+}
+
+/* 컨텐츠 내용 */
+.content2 span{
+  position: relative;
+  display: block;
+  height: 60px;
+
+  font-family: 'ChosunGu';
+  font-weight: 500;
+  font-size: 16px;
+  color: black;
+  line-height: 25px;
+}
+
+/* 컨텐츠 구두점 */
+.content2 span::after{
+  content: "";
+  position: absolute;
+  top: 12.5%;
+  right: 101.5%;
+  transform: translate(-50%);
+
+  width: 8px;
+  height: 8px;
+  background-color: rgba(68, 0, 136);
+}
+
+
+/* ================================================== */
+/* 타이틀 버튼 */
+
+input[name=titleNav]{
+  display: none;
+}
+
+.titleBtn{
+  position: absolute;
+  z-index: 2;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%,0%);
+}
+
+.titleBtn label{
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius:30%;
+  margin: 2px;
+  background-color: lightgray;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+input[id=titleNav1]:checked ~ .titleBtn label[for=titleNav1],
+input[id=titleNav2]:checked ~ .titleBtn label[for=titleNav2]{
+  /* background-color: rgba(68, 0, 136); */
+  background-color: yellowgreen;
+} 
+
+/* ================================================== */
+/* 컨텐츠 버튼 */
+
+input[name=nav]{
+  display: none;
+}
+
+.btn{
+  position: absolute;
+  z-index: 2;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%,0%);
+}
+
+.btn label{
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius:30%;
+  margin: 2px;
+  background-color: lightgray;
+  cursor: pointer;
+  transition: 0.5s;
+ 
+}
+
+input[id=nav1]:checked ~ .cardBox{
+  left: 0;
+}
+
+input[id=nav2]:checked ~ .cardBox{
+  left: -100vw;
+}
+
+input[id=nav3]:checked ~ .cardBox{
+  left: -200vw;
+}
+
+input[id=nav4]:checked ~ .cardBox{
+  left: -300vw;
+}
+
+input[id=nav5]:checked ~ .cardBox{
+  left: -400vw;
+}
+
+input[id=nav1]:checked ~ .btn label[for=nav1],
+input[id=nav2]:checked ~ .btn label[for=nav2],
+input[id=nav3]:checked ~ .btn label[for=nav3],
+input[id=nav4]:checked ~ .btn label[for=nav4],
+input[id=nav5]:checked ~ .btn label[for=nav5]{
+  background-color: rgba(68, 0, 136);
+} 
+ 
+input[id=nav1].active ~ .cardBox .innerCardBox:nth-of-type(1) .content2,
+input[id=nav2].active ~ .cardBox .innerCardBox:nth-of-type(2) .content2,
+input[id=nav3].active ~ .cardBox .innerCardBox:nth-of-type(3) .content2,
+input[id=nav4].active ~ .cardBox .innerCardBox:nth-of-type(4) .content2,
+input[id=nav5].active ~ .cardBox .innerCardBox:nth-of-type(5) .content2{
+  animation: move ease-in-out 0.7s;
+  animation-delay: 0.7s;
+  animation-fill-mode: forwards;
+   
+} 
+ 
+
+
+@keyframes move {
+  0%{}
+  100%{margin-top: 0;}
+
+}
+
+/* ================================================== */
+/* 부가 기능 */
+
+.card:hover{
+  top: 49%;
+}
