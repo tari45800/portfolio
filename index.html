@@ -11,6 +11,7 @@
 
 
   <link rel="stylesheet" href="../css/style.css">
+  <script src="https://kit.fontawesome.com/dca238fc5f.js" crossorigin="anonymous"></script>
   <script src="../js/jquery-3.6.0.js"></script>
   <script>
 
@@ -51,15 +52,52 @@
       });
 
 
+      // ==================================================
+
+
+        $('.card').mouseover(function(){
+          $('.btn label').css({'opacity':'0', 'margin-top':'20px'})
+          $('.btn2 span:nth-child(1)').css({'opacity':'0', 'left':'14%'})
+          $('.btn2 span:nth-child(2)').css({'opacity':'0', 'left':'86%'})
+
+        })
+
+        $('.card').mouseout(function(){
+          $('.btn label').css({'opacity':'0.7','margin-top':'0'})
+          $('.btn2 span:nth-child(1)').css({'opacity':'0.7', 'left':'16%'})
+          $('.btn2 span:nth-child(2)').css({'opacity':'0.7', 'left':'84%'})
+        })
+
         // ==================================================
 
-          $('.card').mouseover(function(){
-            $('.btn label').css('opacity', '0')
-          })
+        $('.btn2 span:nth-child(1)').click(function(){
+          var num = $('input[name=nav]:checked').index('input[name=nav]');
+           
+          if(num == 0){
+            alert('hS')
+          } else {
+            num -= 1;
+          }
 
-          $('.card').mouseout(function(){
-            $('.btn label').css('opacity', '1')
-          })
+          $('input[name=nav]').eq(num).prop("checked", true);
+          $('input[name=nav]:checked').addClass("active");
+
+        })
+
+        $('.btn2 span:nth-child(2)').click(function(){
+          var num = $('input[name=nav]:checked').index('input[name=nav]');
+
+          if(num == 4){
+            alert('hS')
+
+          } else {
+            num += 1;
+          }
+
+          $('input[name=nav]').eq(num).prop("checked", true);
+          $('input[name=nav]:checked').addClass("active");
+        })
+
     })
 
   </script>
@@ -71,9 +109,10 @@
 
 <body>
 
-  <div class="container">
 
+  <div class="container">
     <!-- 제목 박스 -->
+    
     <div class="titleBox">
 
       <input type="radio" name="titleNav" id="titleNav1" checked>
@@ -96,10 +135,10 @@
     <div class="content">
       
       <input type="radio" name="nav" id="nav1" checked>
-      <input type="radio" name="nav" id="nav2">
-      <input type="radio" name="nav" id="nav3">
-      <input type="radio" name="nav" id="nav4">
-      <input type="radio" name="nav" id="nav5">
+      <input type="radio" name="nav" id="nav2" >
+      <input type="radio" name="nav" id="nav3" >
+      <input type="radio" name="nav" id="nav4" >
+      <input type="radio" name="nav" id="nav5" >
       
       <!-- 네비 버튼 -->
       <div class="btn">
@@ -110,7 +149,10 @@
         <label for="nav5"></label>
       </div>
 
-      .btn
+      <div class="btn2">
+        <span><i class="fa-sharp fa-solid fa-chevron-left"></i></span>
+        <span><i class="fa-sharp fa-solid fa-chevron-right"></i></span>
+      </div>
 
       <!-- 배경 색상 -->
       <div class="back"></div>
