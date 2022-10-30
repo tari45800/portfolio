@@ -15,10 +15,6 @@
   <script src="../js/jquery-3.6.0.js"></script>
   <script>
 
-   
-
-
-
     $(function(){
 
       // 컨텐츠 애니메이션
@@ -26,33 +22,17 @@
         $(this).addClass("active");
       })
 
-      // ==================================================
+      //==================================================
+      $('.titleSpan span').mouseover(function(){
+          $(this).css({'transform':'rotate(1deg)'})
+      })
+
+      $('.titleSpan span').mouseout(function(){
+           $(this).css({'transform':'rotate(-1deg)'})
+      })
 
 
-      // 스크롤 이벤트
-      $('#titleNav1').click(function(){
-        var now = $("html, body").scrollTop();
-        alert(now)
-       $("html, body").animate({scrollTop:0}, "slow"); 
-      });
-
-      // 스크롤 이벤트
-      $('#titleNav2').click(function(){
-        var now = $("html, body").scrollTop();
-        alert(now)
-        $("html, body").animate({scrollTop:745}, "slow"); 
-        $('#nav1').addClass("active");
-      });
-
-      // 스크롤 이벤트
-      $(window).scroll(function(){
-
-   
-
-      });
-
-
-      // ==================================================
+      //==================================================
 
 
         $('.card').mouseover(function(){
@@ -68,13 +48,17 @@
           $('.btn2 span:nth-child(2)').css({'opacity':'0.7', 'left':'84%'})
         })
 
-        // ==================================================
+      // ==================================================
 
         $('.btn2 span:nth-child(1)').click(function(){
           var num = $('input[name=nav]:checked').index('input[name=nav]');
            
           if(num == 0){
-            alert('hS')
+            $(".card").css({
+                '-webkit-animation-name':'vibration',
+                'animation-iteration-count':'4',
+                'animation-duration':'0.1s',
+                });
           } else {
             num -= 1;
           }
@@ -100,365 +84,411 @@
 
     })
 
+  // 스크롤 이벤트 ==================================================
+
+    var $html = $("html");
+ 
+    var page = 1;
+            
+    $html.animate({scrollTop:0},10);
+
+    $(window).on("wheel", function(e){
+    
+        if($html.is(":animated")) return;
+
+        if(e.originalEvent.deltaY > 0){
+          page++;
+
+        }else if(e.originalEvent.deltaY < 0){
+          page--;
+        }
+        var posTop = (page-1) * $(window).height();
+
+        $html.animate({scrollTop : posTop},1000);
+        $('input[name="nav"]').eq(0).addClass("active");
+    });
+
+          
+
+
   </script>
 
 
 <!-- ================================================== -->
 
 </head>
-
 <body>
 
 
   <div class="container">
-    <!-- 제목 박스 -->
-    
-    <div class="titleBox">
 
-      <input type="radio" name="titleNav" id="titleNav1" checked>
-      <input type="radio" name="titleNav" id="titleNav2">
 
-      <div class="titleBtn">
-        <label for="titleNav1"></label>
-        <label for="titleNav2"></label>
-      </div>
+    <input type="radio" name="containerNav" id="containerNav1" checked>
+    <input type="radio" name="containerNav" id="containerNav2">
 
-      <div class="title">
-        <span>Tari's<br>
-          Portfolilo</span>
-      </div>
-
+    <div class="containerBtn">
+      <label for="containerNav1"></label>
+      <label for="containerNav2"></label>
     </div>
 
+    <div class="mainDiv">
 
-    <!-- 컨텐츠 -->
-    <div class="content">
-      
-      <input type="radio" name="nav" id="nav1" checked>
-      <input type="radio" name="nav" id="nav2" >
-      <input type="radio" name="nav" id="nav3" >
-      <input type="radio" name="nav" id="nav4" >
-      <input type="radio" name="nav" id="nav5" >
-      
-      <!-- 네비 버튼 -->
-      <div class="btn">
-        <label for="nav1"></label>
-        <label for="nav2"></label>
-        <label for="nav3"></label>
-        <label for="nav4"></label>
-        <label for="nav5"></label>
+      <!-- 제목 박스 -->
+      <div class="titleBox">
+
+        <div class="title">
+          <span class="titleSpan">
+            <span>Tari's</span><br>
+            Portfolilo</span>
+        </div>
+
       </div>
 
-      <div class="btn2">
-        <span><i class="fa-sharp fa-solid fa-chevron-left"></i></span>
-        <span><i class="fa-sharp fa-solid fa-chevron-right"></i></span>
-      </div>
 
-      <!-- 배경 색상 -->
-      <div class="back"></div>
-
-
-      <!-- 5배 박스 -->
-      <div class="cardBox">
-
-
-        <!-- ABOUT ME ====================================================================== -->
-
-        <!-- 기준 박스 -->
-        <div class="innerCardBox">
-          <!-- 명함틀 -->
-          <div class="card">
-
-            <!-- 종이질감 -->
-            <div class="texture"></div>
-            <!-- 명함 내용 -->
-            <div class="cardContent">
-
-              <!-- 순서 -->
-              <div class="ch">
-                <h2>ch1.</h2>
-              </div>
-
-              <!-- 소제목 -->
-              <div class="content1">
-          
-                <h1> ABOUT <br> ME - <br> </h1>
+      <!-- 컨텐츠 -->
+      <div class="content">
         
-                <h2>
-                  너의 모든 것, 내 전부인 너
-                  우리는 영원<br> 
-                  전율 속에 뜨거운 그 맘을 던져
-                  <br>  
-                </h2> 
+        <input type="radio" name="nav" id="nav1" checked>
+        <input type="radio" name="nav" id="nav2" >
+        <input type="radio" name="nav" id="nav3" >
+        <input type="radio" name="nav" id="nav4" >
+        <input type="radio" name="nav" id="nav5" >
         
-              </div>
-
-              <!-- 내용 -->
-              <div class="content2">
-                  <span>안녕하세요! 밝은 건치를 가진 1년차 개발자 이제윤입니다. 뜨근한 자바스크립트를 좋아합니다.</span>
-                  <span>네가 머문 이 세상이 더
-                    아름다운 건
-                    겁 없이 외치던 말 '사랑해 너를'
-                    영원하기에
-                    You and I.</span>
-                  <span>터지는 눈물이
-                    말하잖아
-                    난 그냥 전부 던진 거야
-                    아무런 망설임 따위도
-                    멋대로 끌렸던 그대로
-                    Oh my baby 달려가 안을게</span>
-                  <span> 날 꼭 안아 절대 놓치지 마
-                    가슴이 뛰잖아 </span>
-              </div>
-            </div>
-
-          </div>
+        <!-- 네비 버튼 -->
+        <div class="btn">
+          <label for="nav1"></label>
+          <label for="nav2"></label>
+          <label for="nav3"></label>
+          <label for="nav4"></label>
+          <label for="nav5"></label>
         </div>
 
-
-        <!-- EDUCATION ====================================================================== -->
-
-        <!-- 기준 박스 -->
-        <div class="innerCardBox">
-          <!-- 명함틀 -->
-          <div class="card">
-
-            <!-- 종이질감 -->
-            <div class="texture"></div>
-            <!-- 명함 내용 -->
-            <div class="cardContent">
-
-              <!-- 순서 -->
-              <div class="ch">
-                <h2>ch2.</h2>
-              </div>
-
-              <!-- 소제목 -->
-              <div class="content1">
-          
-                <h1> EDU - <br> CATION <br> </h1>
-        
-                <h2>
-                  너의 모든 것, 내 전부인 너
-                  우리는 영원<br> 
-                  전율 속에 뜨거운 그 맘을 던져
-                  <br>  
-                </h2> 
-        
-              </div>
-
-              <!-- 내용 -->
-              <div class="content2">
-
-                  <span>ITWILL 교육 센터</span>
-                  <div>2019.08 ~ 2020.02</div>
-                  <div>아이티윌 전자정부 프레임워크 자바개발자 과정을 수강하였습니다. 수강을 하며 Java의 문법과 Jsp, Html/CSS/Javascript 를 배우며 기본적인 웹 서비스를 만들 수 있었습니다.또한 팀프로젝트를 진행하며 협업하는 방법을 배우며 소통의 중요성을 배웠습니다.</div>
-
-                  <span>INFLEAN</span>
-                  <div>2019.08 ~ 2020.02</div>
-                  <div> 인프런 스프링 핵심기술 강의를 들으며 IoC 컨테이너, AOP 그리고 스프링의 여러가지 추상 API 와 같은 스프링 핵심 기술을 배우며 더 나은 웹서버 개발자로 성장하기 위해 수강하고 있습니다. </div>
-              </div>
-            </div>
-
-          </div>
+        <div class="btn2">
+          <span><i class="fa-sharp fa-solid fa-chevron-left"></i></span>
+          <span><i class="fa-sharp fa-solid fa-chevron-right"></i></span>
         </div>
 
-        
-        <!-- SKILLS ====================================================================== -->
+        <!-- 배경 색상 -->
+        <div class="back"></div>
 
 
-        <!-- 기준 박스 -->
-        <div class="innerCardBox">
-          <!-- 명함틀 -->
-          <div class="card">
-
-            <!-- 종이질감 -->
-            <div class="texture"></div>
-            <!-- 명함 내용 -->
-            <div class="cardContent">
-
-              <!-- 순서 -->
-              <div class="ch">
-                <h2>ch3.</h2>
-              </div>
-
-              <!-- 소제목 -->
-              <div class="content1">
-          
-                <h1> SKILLS <br> </h1>
-        
-                <h2>
-                  너의 모든 것, 내 전부인 너
-                  우리는 영원<br> 
-                  전율 속에 뜨거운 그 맘을 던져
-                  <br>  
-                </h2> 
-        
-              </div>
-
-              <!-- 내용 -->
-              <div class="content2">
-                  <span>Frontend </span>
-                  <div>
-                    HTML
-                    CSS
-                    JQuery
-                    JavaScript
-                    React
-                    Tailwind
-                  </div>
-
-                  <span>Backend </span>
-                  <div>
-                    Java
-                    jsp
-                    Spring
-                    MySQL
-                    OracleDB
-                  </div>
-
-                  <span>Tools </span>
-                  <div>
-                    Git, GitHub
-                    VSCode, Eclipse
-                  </div>
-
-              </div>
-            </div>
-
-          </div>
-        </div>
+        <!-- 5배 박스 -->
+        <div class="cardBox">
 
 
-        <!-- PROJECTS ====================================================================== -->
+          <!-- ABOUT ME ====================================================================== -->
 
-        <!-- 기준 박스 -->
-        <div class="innerCardBox">
-          <!-- 명함틀 -->
-          <div class="card">
+          <!-- 기준 박스 -->
+          <div class="innerCardBox">
+            <!-- 명함틀 -->
+            <div class="card">
 
-            <!-- 종이질감 -->
-            <div class="texture"></div>
-            <!-- 명함 내용 -->
-            <div class="cardContent">
+              <!-- 종이질감 -->
+              <div class="texture"></div>
+              <!-- 명함 내용 -->
+              <div class="cardContent">
 
-              <!-- 순서 -->
-              <div class="ch">
-                <h2>ch4.</h2>
-              </div>
-
-              <!-- 소제목 -->
-              <div class="content1">
-          
-                <h1> PRO - <br> JECTS <br> </h1>
-        
-                <h2>
-                  너의 모든 것, 내 전부인 너
-                  우리는 영원<br> 
-                  전율 속에 뜨거운 그 맘을 던져
-                  <br>  
-                </h2> 
-        
-              </div>
-
-              <!-- 내용 -->
-              <div class="content2">
-
-                  <span>트리어스(주소)</span>
-                  <div>
-                    개요<br>
-                    네가 머문 이 세상이 더
-                    아름다운 건
-                    겁 없이 외치던 말 '사랑해 너를'
-                    영원하기에
-                    You and I.<br>
-                    주요 기능<br>
-                    내가 생각하는 나의 성격 검사하기, 친구에게 나의 성격 평가 부탁하기
-                  </div>
-
-                  <span>종이로 만든 사이트(주소)</span>
-                  <div>
-                    개요<br>
-                    네가 머문 이 세상이 더
-                    아름다운 건
-                    겁 없이 외치던 말 '사랑해 너를'
-                    영원하기에
-                    You and I.<br>
-                    주요 기능<br>
-                    내가 생각하는 나의 성격 검사하기, 친구에게 나의 성격 평가 부탁하기
-                  </div>
-             
+                <!-- 순서 -->
+                <div class="ch">
+                  <h2>ch1.</h2>
                 </div>
-            </div>
 
-          </div>
-        </div>
-
-
-        <!-- CONTACTS====================================================================== -->
-
-        <!-- 기준 박스 -->
-        <div class="innerCardBox">
-          <!-- 명함틀 -->
-          <div class="card">
-
-            <!-- 종이질감 -->
-            <div class="texture"></div>
-            <!-- 명함 내용 -->
-            <div class="cardContent">
-
-              <!-- 순서 -->
-              <div class="ch">
-                <h2>ch5.</h2>
-              </div>
-
-              <!-- 소제목 -->
-              <div class="content1">
+                <!-- 소제목 -->
+                <div class="content1">
+            
+                  <h1> ABOUT <br> ME - <br> </h1>
           
-                <h1> CON - <br> TACTS <br> </h1>
-        
-                <h2>
-                  너의 모든 것, 내 전부인 너
-                  우리는 영원<br> 
-                  전율 속에 뜨거운 그 맘을 던져
-                  <br>  
-                </h2> 
-        
+                  <h2>
+                    
+                  	개발자로서의 나와 사람으로서의 나는<br>  
+                    다르지 않아야 한다고 생각합니다.
+                   
+                    <br>  
+                  </h2> 
+          
+                </div>
+
+                <!-- 내용 -->
+                <div class="content2">
+
+
+                    <span class="spanCon1">
+                      안녕하세요! 개발이 즐거운 신입 개발자 이제윤입니다. <br> 
+                    </span>
+                    
+                    <span class="spanCon1"> 
+                      보기좋은 사이트가 사용하기도 좋다고 생각합니다.
+                    </span>
+                    
+                    <span class="spanCon1">
+                      "not for self" 나 자신을 위해서가 아닌 타인을 위함이
+                      저의 중요한 가치관 중 하나입니다.
+                    </span>
+             
+                    <span class="spanCon1">
+                      실력을 쌓아 끝에는 새로운 일을 선구하고자 하는 비전을 가지고 있습니다. 
+                    </span>
+                </div>
               </div>
 
-              <!-- 내용 -->
-              <div class="content2">
-                  <span>
-                    phone<br>
-                    010-9526-7933
-                  </span>
-
-                  <span>
-                    email<br>
-                    tari45800@gmail.com
-                  </span>
-
-                  <span>
-                    github<br>
-                    https://github.com/tari45800
-                  </span>
-
-                  <span>
-                    notion<br>
-                    https://www.notion.so/MAIN-d5a0e516e6bd433e97f519eb7b655ad6
-                  </span>
-
-              </div>
             </div>
-
           </div>
+
+
+          <!-- EDUCATION ====================================================================== -->
+
+          <!-- 기준 박스 -->
+          <div class="innerCardBox">
+            <!-- 명함틀 -->
+            <div class="card">
+
+              <!-- 종이질감 -->
+              <div class="texture"></div>
+              <!-- 명함 내용 -->
+              <div class="cardContent">
+
+                <!-- 순서 -->
+                <div class="ch">
+                  <h2>ch2.</h2>
+                </div>
+
+                <!-- 소제목 -->
+                <div class="content1">
+            
+                  <h1> EDU - <br> CATION <br> </h1>
+          
+                  <h2>
+                  
+                    바라는 복지가 하나 있다면<br>   
+                    교육비 지원입니다.
+                    <br>  
+                  
+                  </h2> 
+          
+                </div>
+
+                <!-- 내용 -->
+                <div class="content2">
+                  
+                    
+                      <span class="spanTitle">ITWILL </span>
+                      <span class="spanSub">(2022.03 ~ 2022.09)</span>
+                      <span class="spanCon">아이티윌 클라우드 기반 네트워크 정보시스템 과정을 수료했습니다. JAVA와 JSP로 백엔드를 구축하는 방법을 배웠고, 추후 프로젝트를 통해 CSS, JS등 전반적인 프론트엔드를 경험할 수 있었습니다. </span><br>
+
+                    
+                      <span class="spanTitle">INFLEAN </span>
+                      <span class="spanSub">(2022.09 ~ 2022.10)</span>
+                      <span class="spanCon">인프런의 퍼블리싱 기술을 학습했습니다. 기술별 세분화된 예제들을 실습하면서 대중적으로 쓰이는 퍼블리싱 방법들을 확실히 익힐 수 있었습니다.
+                    </span>
+           
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          
+          <!-- SKILLS ====================================================================== -->
+
+
+          <!-- 기준 박스 -->
+          <div class="innerCardBox">
+            <!-- 명함틀 -->
+            <div class="card">
+
+              <!-- 종이질감 -->
+              <div class="texture"></div>
+              <!-- 명함 내용 -->
+              <div class="cardContent">
+
+                <!-- 순서 -->
+                <div class="ch">
+                  <h2>ch3.</h2>
+                </div>
+
+                <!-- 소제목 -->
+                <div class="content1">
+            
+                  <h1> SKILLS <br> </h1>
+          
+                  <h2>
+                    배우고 싶은 언어들이 많습니다.
+                    <br> 
+                    앞으로도 정진하며 발전하겠습니다.
+                    <br>  
+                  </h2> 
+          
+                </div>
+
+                <!-- 내용 -->
+                <div class="content2">
+
+                    <span class="spanTitle3">Frontend</span>
+                    <span class="spanCon3"> 
+                    HTML /
+                    CSS / 
+                    JQuery / 
+                    JavaScript 
+                    </span>
+      
+                    <span class="spanTitle3">Backend</span>
+                    <span class="spanCon3">
+                    Java /
+                    JSP / 
+                    MySQL / 
+                    OracleDB 
+                    </span>
+                    
+                    <span class="spanTitle3">Tools</span>
+                    <span class="spanCon3">
+                    Git / 
+                    GitHub / 
+                    VSCode / 
+                    Eclipse 
+                    </span>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+          <!-- PROJECTS ====================================================================== -->
+
+          <!-- 기준 박스 -->
+          <div class="innerCardBox">
+            <!-- 명함틀 -->
+            <div class="card">
+
+              <!-- 종이질감 -->
+              <div class="texture"></div>
+              <!-- 명함 내용 -->
+              <div class="cardContent">
+
+                <!-- 순서 -->
+                <div class="ch">
+                  <h2>ch4.</h2>
+                </div>
+
+                <!-- 소제목 -->
+                <div class="content1">
+            
+                  <h1> PRO - <br> JECTS <br> </h1>
+          
+                  <h2>
+                    함께하는 프로젝트는 즐거웠습니다.
+                    <br> 
+                    업무의 효율을 높이는 것은 
+                    단연 즐거움이라 생각합니다.
+                    <br>  
+                  </h2> 
+          
+                </div>
+
+                <!-- 내용 -->
+                <div class="content2">
+
+                  <span class="spanTitle">트리어스
+                  </span>
+                  <span class="spanSub"><a href="https://meowing-ginger-32f.notion.site/TreeEarth-74e1cad947fa4d48aacfa053dc25070a" target="_blank">(https://www.notion.so/TreeEarth)</a></span>
+
+                  <span class="spanCon4">
+                    TreeEarth는 환경보호 사이트입니다.
+                    기후변화의 대책으로 나무를 특정해 사용자에게 좀 더 구체적인 해결방안을 제시하여 직접적인 참여로 이어질 수 있게 구상했습니다.
+                  </span>
+
+                  <span class="spanTitle4">담당 기능 구현</span>
+
+                  <span class="spanCon4">
+                    - 로그인, 회원가입 기능<br>
+                    - 게시글 등록 삭제 기능<br>
+                    - 크라우드 펀딩 기능<br>
+                  </span>
+                  <span class="spanCon4">
+                    - Ajax를 활용한 비동기 처리 <br>
+                    - Iamport 간편 결제 기능 <br>
+                    - 전반적인 프론트엔드<br>
+                  </span>
+              
+                  </div>
+              </div>
+
+            </div>
+          </div>
+
+
+          <!-- CONTACTS====================================================================== -->
+
+          <!-- 기준 박스 -->
+          <div class="innerCardBox">
+            <!-- 명함틀 -->
+            <div class="card">
+
+              <!-- 종이질감 -->
+              <div class="texture"></div>
+              <!-- 명함 내용 -->
+              <div class="cardContent">
+
+                <!-- 순서 -->
+                <div class="ch">
+                  <h2>ch5.</h2>
+                </div>
+
+                <!-- 소제목 -->
+                <div class="content1">
+            
+                  <h1> CON - <br> TACTS <br> </h1>
+          
+                  <h2>
+					
+				          	Precision beats power and<br> 
+                   	Timing beats speed.<br> 
+                    
+                   <br>  
+                  </h2> 
+          
+                </div>
+
+                <!-- 내용 -->
+                <div class="content2">
+                  
+                    <span class="spanTitle3">Phone</span>  
+                    <span class="spanCon3">
+                      010-9526-7933
+                    </span>
+
+                    <span class="spanTitle3">Email</span>  
+                    <span class="spanCon3">
+                      tari45800@gmail.com
+                    </span>
+
+                    <span class="spanTitle3">Github</span>  
+                    <span class="spanCon3">
+                      <a href="https://github.com/tari45800
+                      " target="_blank">https://github.com/tari45800
+                    </a>
+                    </span>
+
+                    <span class="spanTitle3">Notion</span>  
+                    <span class="spanCon3">
+                      <a href="https://meowing-ginger-32f.notion.site/MAIN-d5a0e516e6bd433e97f519eb7b655ad6
+                      " target="_blank">https://www.notion.so/tari45800</a>
+                     
+                    </span>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        
+
         </div>
-       
 
       </div>
-
+      
     </div>
-
   </div>
 
 </body>
