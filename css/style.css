@@ -1,5 +1,4 @@
 
-
 @font-face {
   font-family: 'TmonMonsori';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/TmonMonsori.woff') format('woff');
@@ -125,7 +124,7 @@ a{
 /* 5배 박스 */
 .cardBox{
   position: absolute;
-  width: 500vw;
+  width: 600vw;
   height: 100vh;
   transition: 1s;
 }
@@ -258,7 +257,7 @@ width: 28%;
   letter-spacing: 2px;
   line-height: 28px;
   top: 4px;
-  color: rgb(60, 60, 60);
+  color: rgb(55, 55, 55);
   margin-bottom: 30px;
 
 }
@@ -276,7 +275,7 @@ width: 28%;
   letter-spacing: 2px;
   line-height: 28px;
   top: 4px;
-  color: rgb(60, 60, 60);
+  color: rgb(55, 55, 55);
   margin-bottom: 25px;
   display: block;
 }
@@ -437,11 +436,15 @@ input[id=nav5]:checked ~ .cardBox{
   left: -400vw;
 }
 
+input[id=nav6]:checked ~ .cardBox{
+  left: -500vw;
+}
 input[id=nav1]:checked ~ .btn label[for=nav1],
 input[id=nav2]:checked ~ .btn label[for=nav2],
 input[id=nav3]:checked ~ .btn label[for=nav3],
 input[id=nav4]:checked ~ .btn label[for=nav4],
-input[id=nav5]:checked ~ .btn label[for=nav5]{
+input[id=nav5]:checked ~ .btn label[for=nav5],
+input[id=nav6]:checked ~ .btn label[for=nav6]{
   background-color: rgba(68, 0, 136);
 } 
  
@@ -449,7 +452,8 @@ input[id=nav1].active ~ .cardBox .innerCardBox:nth-of-type(1) .content2,
 input[id=nav2].active ~ .cardBox .innerCardBox:nth-of-type(2) .content2,
 input[id=nav3].active ~ .cardBox .innerCardBox:nth-of-type(3) .content2,
 input[id=nav4].active ~ .cardBox .innerCardBox:nth-of-type(4) .content2,
-input[id=nav5].active ~ .cardBox .innerCardBox:nth-of-type(5) .content2{
+input[id=nav5].active ~ .cardBox .innerCardBox:nth-of-type(5) .content2,
+input[id=nav6].active ~ .cardBox .innerCardBox:nth-of-type(6) .content2{
   animation: move ease-in-out 0.7s;
   animation-delay: 0.7s;
   animation-fill-mode: forwards;
